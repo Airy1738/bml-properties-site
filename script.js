@@ -1,35 +1,41 @@
-// Import Firebase modules
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
-import { getFirestore, collection, addDoc, getDocs, query, orderBy } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
-// Your Firebase configuration object
+// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyCyiS46drfUfcBY6DOCCAOMEDuogCiaa9Y",
+    authDomain: "bml-properties-site.firebaseapp.com",
+    projectId: "bml-properties-site",
+    storageBucket: "bml-properties-site.firebasestorage.app",
+    messagingSenderId: "566242853279",
+    appId: "1:566242853279:web:5bd04a264b314b0518fdaa",
+    measurementId: "G-YTT6FSXCJ6"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 const db = getFirestore(app);
 
-// DOM Elements
-const registerForm = document.getElementById('register-form');
-const loginForm = document.getElementById('login-form');
-const logoutSection = document.getElementById('logout-section');
-const listingsSection = document.getElementById('listings-section');
-const userEmailSpan = document.getElementById('user-email');
-const listingsDiv = document.getElementById('listings');
+// Function to fetch and display property listings
+async function fetchProperties() {
+    const propertiesContainer = document.getElementById('properties-container');
+    const querySnapshot = await getDocs(collection(db, "properties"));
+    querySnapshot.forEach((doc) => {
+        const property = doc.data();
+        const propertyCard = document.createElement('div');
+        propertyCard.classList.add('property-card');
+        propertyCard.innerHTML = `
+            <img src="${property.imageUrl}" alt="${property.name}">
+            <div class="content">
+                <h3>${property.name}</h3>
+                <p>${property.description}</p>
+                <p class="price">$${property.price}</p>
+            </div>
+        `;
+        propertiesContainer.appendChild(propertyCard);
+    });
+}
 
-// Register Function
-window.register = async () => {
-    const email = document.getElementById('register-email').value;
-    const password = document.getElementById('register-password
-::contentReference[oaicite:12]{index=12}
- 
-
+// Call the function to display properties
+fetchProperties();
