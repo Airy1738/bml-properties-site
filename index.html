@@ -3,25 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firebase Auth Example</title>
+    <title>Home - Real Estate</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="auth-container">
-        <div id="register-form">
-            <h2>Register</h2>
-            <input type="email" id="register-email" placeholder="Email">
-            <input type="password" id="register-password" placeholder="Password">
-            <button id="register-btn">Register</button>
-        </div>
-        <div id="login-form">
-            <h2>Login</h2>
-            <input type="email" id="login-email" placeholder="Email">
-            <input type="password" id="login-password" placeholder="Password">
-            <button id="login-btn">Login</button>
-        </div>
-        <button id="logout-btn" style="display: none;">Logout</button>
-    </div>
-    <script type="module" src="app.js"></script>
+    <header>
+        <h1>Welcome to Our Real Estate Website</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="schedule.html">Schedule a Visit</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="featured-properties">
+            <h2>Featured Properties</h2>
+            <div id="properties-container">
+                <!-- Property listings will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Real Estate Company</p>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
