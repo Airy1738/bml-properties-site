@@ -2,24 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>BML Properties - Home</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our Site</h1>
-        <nav>
-            <ul>
-                <li><a href="listings.html">Listings</a></li>
-                <li><a href="schedule.html">Schedule</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <p>Explore our services and offerings.</p>
-    </main>
-    <script src="script.js"></script>
+    <h1>Welcome to BML Properties</h1>
+
+    <!-- Registration Form -->
+    <div id="register-form">
+        <h2>Register</h2>
+        <input type="email" id="register-email" placeholder="Email">
+        <input type="password" id="register-password" placeholder="Password">
+        <button onclick="register()">Register</button>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-form">
+        <h2>Login</h2>
+        <input type="email" id="login-email" placeholder="Email">
+        <input type="password" id="login-password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <!-- Logout Button -->
+    <div id="logout-section" style="display: none;">
+        <h2>Welcome, <span id="user-email"></span></h2>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Property Listings Section -->
+    <div id="listings-section" style="display: none;">
+        <h2>Property Listings</h2>
+        <div id="listings"></div>
+        <h3>Add a New Listing</h3>
+        <input type="text" id="property-title" placeholder="Property Title">
+        <input type="text" id="property-description" placeholder="Property Description">
+        <input type="text" id="property-image-url" placeholder="Image URL">
+        <button onclick="addListing()">Add Listing</button>
+    </div>
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>
