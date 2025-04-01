@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Real Estate</title>
+    <title>BML Properties</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <!-- Firebase Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <!-- Your custom script -->
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Welcome to Our Real Estate Website</h1>
+        <h1>BML Properties</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="listings.html">Listings</a></li>
                 <li><a href="schedule.html">Schedule a Visit</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="featured-properties">
-            <h2>Featured Properties</h2>
-            <div id="properties-container">
-                <!-- Property listings will be dynamically inserted here -->
-            </div>
+        <section id="properties-container">
+            <!-- Property listings will be dynamically inserted here -->
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Real Estate Company</p>
+        <p>&copy; 2025 BML Properties. All rights reserved.</p>
     </footer>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
