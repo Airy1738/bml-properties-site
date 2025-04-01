@@ -84,35 +84,6 @@ form button:hover {
   background: #555;
 }
 
-/* Property Cards (if needed later) */
-.property-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 20px;
-}
-.property-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-.property-card .content {
-  padding: 15px;
-}
-.property-card h3 {
-  margin-bottom: 10px;
-}
-.property-card p {
-  color: #777;
-}
-.property-card .price {
-  font-size: 1.2em;
-  color: #e74c3c;
-  margin-top: 10px;
-}
-
 /* Footer */
 footer {
   background-color: #333;
