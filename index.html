@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register and Login</title>
+</head>
+<body>
+  <h1>BML Properties - Register and Login</h1>
+
+  <!-- Registration Form -->
+  <h2>Register</h2>
+  <form id="register-form">
+    <input type="email" id="email" placeholder="Email" required><br>
+    <input type="password" id="password" placeholder="Password" required><br>
+    <button type="submit">Register</button>
+  </form>
+  
+  <!-- Login Form -->
+  <h2>Login</h2>
+  <form id="login-form">
+    <input type="email" id="login-email" placeholder="Email" required><br>
+    <input type="password" id="login-password" placeholder="Password" required><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <p id="error-message"></p>
+
+  <!-- Firebase SDK Script -->
+  <script type="module">
+    // Import Firebase SDK functions
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCyiS46drfUfcBY6DOCCAOMEDuogCiaa9Y",
+      authDomain: "bml-properties-site.firebaseapp.com",
+      databaseURL: "https://bml-properties-site-default-rtdb.firebaseio.com",
+      projectId: "bml-properties-site",
+      storageBucket: "bml-properties-site.firebasestorage.app",
+      messagingSenderId: "566242853279",
+      appId: "1:566242853279:web:dec7f485d0da8e7318fdaa",
+      measurementId: "G-YXCZ6C1Z4X"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
+
+    // Handle Register Form
+    document.getElementById('register-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          alert('Registration Successful!');
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          document.getElementById('error-message').innerText = errorMessage;
+        });
+    });
+
+    // Handle Login Form
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          alert('Login Successful!');
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          document.getElementById('error-message').innerText = errorMessage;
+        });
+    });
+  </script>
+</body>
+</html>
