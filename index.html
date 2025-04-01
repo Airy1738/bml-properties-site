@@ -2,45 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BML Properties - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Auth Example</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to BML Properties</h1>
-
-    <!-- Registration Form -->
-    <div id="register-form">
-        <h2>Register</h2>
-        <input type="email" id="register-email" placeholder="Email">
-        <input type="password" id="register-password" placeholder="Password">
-        <button onclick="register()">Register</button>
+    <div id="auth-container">
+        <div id="register-form">
+            <h2>Register</h2>
+            <input type="email" id="register-email" placeholder="Email">
+            <input type="password" id="register-password" placeholder="Password">
+            <button id="register-btn">Register</button>
+        </div>
+        <div id="login-form">
+            <h2>Login</h2>
+            <input type="email" id="login-email" placeholder="Email">
+            <input type="password" id="login-password" placeholder="Password">
+            <button id="login-btn">Login</button>
+        </div>
+        <button id="logout-btn" style="display: none;">Logout</button>
     </div>
-
-    <!-- Login Form -->
-    <div id="login-form">
-        <h2>Login</h2>
-        <input type="email" id="login-email" placeholder="Email">
-        <input type="password" id="login-password" placeholder="Password">
-        <button onclick="login()">Login</button>
-    </div>
-
-    <!-- Logout Button -->
-    <div id="logout-section" style="display: none;">
-        <h2>Welcome, <span id="user-email"></span></h2>
-        <button onclick="logout()">Logout</button>
-    </div>
-
-    <!-- Property Listings Section -->
-    <div id="listings-section" style="display: none;">
-        <h2>Property Listings</h2>
-        <div id="listings"></div>
-        <h3>Add a New Listing</h3>
-        <input type="text" id="property-title" placeholder="Property Title">
-        <input type="text" id="property-description" placeholder="Property Description">
-        <input type="text" id="property-image-url" placeholder="Image URL">
-        <button onclick="addListing()">Add Listing</button>
-    </div>
-
-    <script type="module" src="script.js"></script>
+    <script type="module" src="app.js"></script>
 </body>
 </html>
