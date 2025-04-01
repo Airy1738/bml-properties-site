@@ -3,34 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listings - Real Estate</title>
+    <title>Property Details</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <!-- Firebase Firestore -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <!-- Your custom script -->
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Property Listings</h1>
+        <h1>BML Properties</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="listings.html">Listings</a></li>
                 <li><a href="schedule.html">Schedule a Visit</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="all-properties">
-            <h2>All Properties</h2>
-            <div id="all-properties-container">
-                <!-- All property listings will be dynamically inserted here -->
-            </div>
+        <section id="property-details">
+            <!-- Property details will be dynamically inserted here -->
+        </section>
+        <section id="schedule-visit">
+            <h2>Schedule a Visit</h2>
+            <form id="visit-form">
+                <input type="hidden" name="propertyId" id="propertyId">
+                <label for="name">Your Name:</label>
+                <input type="text" name="name" id="name" required>
+                <label for="email">Your Email:</label>
+                <input type="email" name="email" id="email" required>
+                <label for="date">Preferred Visit Date:</label>
+                <input type="date" name="date" id="date" required>
+                <button type="submit">Schedule Visit</button>
+            </form>
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Real Estate Company</p>
+        <p>&copy; 2025 BML Properties. All rights reserved.</p>
     </footer>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
