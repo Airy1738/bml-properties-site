@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listings</title>
+    <title>Listings - Real Estate</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Available Listings</h1>
+        <h1>Property Listings</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="schedule.html">Schedule</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="schedule.html">Schedule a Visit</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <p>Here are our available listings.</p>
+        <section id="all-properties">
+            <h2>All Properties</h2>
+            <div id="all-properties-container">
+                <!-- All property listings will be dynamically inserted here -->
+            </div>
+        </section>
     </main>
+    <footer>
+        <p>&copy; 2025 Real Estate Company</p>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
