@@ -1,4 +1,4 @@
-// Firebase configuration using your credentials
+// Firebase configuration using your provided credentials
 const firebaseConfig = {
   apiKey: "AIzaSyCyiS46drfUfcBY6DOCCAOMEDuogCiaa9Y",
   authDomain: "bml-properties-site.firebaseapp.com",
@@ -9,7 +9,7 @@ const firebaseConfig = {
   measurementId: "G-YTT6FSXCJ6"
 };
 
-// Initialize Firebase (using the global firebase object loaded via <script> tags)
+// Initialize Firebase using the global firebase object from the CDN scripts
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
@@ -28,6 +28,10 @@ const userInfo = document.getElementById("user-info");
 const userEmailDisplay = document.getElementById("user-email");
 const authForms = document.getElementById("auth-forms");
 
+// Message display elements
+const registerMessage = document.getElementById("register-message");
+const loginMessage = document.getElementById("login-message");
+
 // Register user
 if (registerBtn) {
   registerBtn.addEventListener("click", () => {
@@ -38,10 +42,11 @@ if (registerBtn) {
         console.log("Registered:", userCredential.user);
         registerEmail.value = "";
         registerPassword.value = "";
+        registerMessage.textContent = "Registration successful!";
       })
       .catch((error) => {
         console.error("Registration Error:", error);
-        alert(error.message);
+        registerMessage.textContent = "Registration failed: " + error.message;
       });
   });
 }
@@ -56,10 +61,11 @@ if (loginBtn) {
         console.log("Logged in:", userCredential.user);
         loginEmail.value = "";
         loginPassword.value = "";
+        loginMessage.textContent = "Login successful!";
       })
       .catch((error) => {
         console.error("Login Error:", error);
-        alert(error.message);
+        loginMessage.textContent = "Login failed: " + error.message;
       });
   });
 }
@@ -81,6 +87,9 @@ auth.onAuthStateChanged((user) => {
     userInfo.classList.remove("hidden");
     authForms.classList.add("hidden");
     userEmailDisplay.textContent = user.email;
+    // Clear any messages
+    loginMessage.textContent = "";
+    registerMessage.textContent = "";
   } else {
     userInfo.classList.add("hidden");
     authForms.classList.remove("hidden");
@@ -89,11 +98,9 @@ auth.onAuthStateChanged((user) => {
 
 // Dummy schedule form handling (for schedule.html)
 const scheduleForm = document.getElementById("schedule-form");
-const scheduleResponse = document.getElementById("schedule-response");
 if (scheduleForm) {
   scheduleForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    // You could add code to send schedule info to a backend.
     document.getElementById("schedule-response").textContent = "Visit scheduled successfully!";
     scheduleForm.reset();
   });
@@ -101,11 +108,9 @@ if (scheduleForm) {
 
 // Dummy contact form handling (for contact.html)
 const contactForm = document.getElementById("contact-form");
-const contactResponse = document.getElementById("contact-response");
 if (contactForm) {
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    // You could add code to send the message to a backend.
     document.getElementById("contact-response").textContent = "Your message has been sent!";
     contactForm.reset();
   });
