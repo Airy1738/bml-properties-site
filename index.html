@@ -21,10 +21,7 @@
 
     <main>
       <section id="auth-section">
-        <div id="user-info" class="hidden">
-          <p>Welcome, <span id="user-email"></span>!</p>
-          <button id="sign-out-btn">Sign Out</button>
-        </div>
+        <!-- This section is shown when no user is logged in -->
         <div id="auth-forms">
           <div id="register-form">
             <h2>Register</h2>
@@ -38,6 +35,12 @@
             <input type="password" id="login-password" placeholder="Password" required />
             <button id="login-btn">Login</button>
           </div>
+        </div>
+
+        <!-- This section is shown when a user is logged in -->
+        <div id="user-info" class="hidden">
+          <p>Welcome, <span id="user-email"></span>!</p>
+          <button id="sign-out-btn">Sign Out</button>
         </div>
       </section>
     </main>
