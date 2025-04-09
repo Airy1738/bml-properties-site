@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Add Listing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Admin Panel</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="listings.html">Listings</a></li>
+          <li><a href="schedule.html">Schedule a Visit</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="admin.html" class="active">Add Listing</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="form-section">
+    <h2>Add New Property</h2>
+    <form id="add-property-form">
+      <input type="text" id="prop-title" placeholder="Property Title" required>
+      <input type="text" id="prop-location" placeholder="Location" required>
+      <input type="text" id="prop-price" placeholder="Price" required>
+      <input type="url" id="prop-image" placeholder="Image URL" required>
+      <textarea id="prop-description" placeholder="Description" required></textarea>
+      <button type="submit">Add Listing</button>
+    </form>
+    <p id="admin-response"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
